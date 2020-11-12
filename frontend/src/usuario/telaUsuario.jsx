@@ -5,14 +5,22 @@ import { connect } from 'react-redux'
 class usuario extends Component {   
     constructor(props){
         super(props)
+        
+        this.state={
+            nome:''
+        }
     }
     
+    
     render(){
+        if(this.props.nome !== ''){
+            this.state.nome = this.props.nome
+        }
         console.log(this.props)
         return(
             <div className="container">
                 <h1 className="titulo">Autenticado com sucesso!</h1>
-                    <p>Nome: {this.props.nome}</p>
+                    <p>Nome: {this.state.nome}</p>
                     <p>Email: {this.props.email}</p>
                     <p>Telefone: {this.props.telefone}</p>
                 <div>
