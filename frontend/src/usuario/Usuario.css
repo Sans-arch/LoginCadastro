@@ -1,0 +1,13 @@
+.titulo {
+    color: white;
+}
+
+.container {
+    margin-left: 500px;
+    margin-top: 200px;
+}
+
+#botaoSair {
+    margin-left: 170px;
+    margin-top: 40px;
+}

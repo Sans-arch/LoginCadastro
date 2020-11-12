@@ -1,0 +1,46 @@
+* {
+    font-family: 'Oswald';
+}
+
+.CadastroInput{
+    width: 300px;
+    color: black;
+    font-size: 1.8rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.CadastroPosicao{
+    position: fixed;
+    right: 525px;
+    top: 100px;
+}
+
+.CadastroH2{
+    text-align: center;
+    color: #fff;
+    cursor: no-drop;
+}
+.CadastroBT1{
+  padding:15px;  
+  position: fixed;
+  right: 550px;
+  top: 470px;
+ 
+}
+.CadastroBT2{
+    padding:15px;  
+    position: fixed;
+    right: 680px;
+    top: 470px;
+}
+
+#botao1:hover {
+    background-color: #478978;
+    border: none;
+}
+
+#botao2:hover {
+    background-color: #A20021;
+    border: none;
+}

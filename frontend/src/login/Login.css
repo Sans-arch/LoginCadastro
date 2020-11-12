@@ -1,0 +1,42 @@
+* {
+    font-family: 'Oswald';
+}
+
+.loginInput{
+    color: black;
+    width: 300px;
+    font-size: 1.8rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.loginPosicaoo{
+    position: fixed;
+    right: 525px;
+    top: 140px;
+}
+
+.loginH2{
+    text-align: center;
+    color: #fff;
+    cursor: not-allowed;
+}
+.loginBT1{
+    padding: 15px;
+    position: fixed;
+    right: 560px;
+    top: 330px;
+}
+
+.loginBT2{
+    padding: 15px;
+    position: fixed;
+    right: 680px;
+    top: 330px;
+}
+
+#botao21:hover {
+    background-color: #DCED31;
+    border: none;
+    color: black;
+}
