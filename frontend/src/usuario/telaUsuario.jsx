@@ -9,9 +9,20 @@ class usuario extends Component {
         super(props)
         
         this.state={
-            nome:''
+            nome:'',
+            currentTime: 0
         }
     }
+
+    
+    tick(){
+        this.setState((prevState, props) => ({
+            currentTime: prevState.currentTime + 1
+        }))
+    }
+
+
+
 
     trocarCookie() {
         Cookies.set('confirmaTela', false, { expires: 7 })
