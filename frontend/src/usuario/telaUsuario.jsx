@@ -12,8 +12,14 @@ class usuario extends Component {
             nome:''
         }
     }
+
+    trocarCookie() {
+        Cookies.set('confirmaTela', false, { expires: 7 })
+        window.location.href="#/login"
+    }
     
     render(){
+
         
         if(this.props.nome !== ''){
             this.state.nome = this.props.nome
@@ -30,6 +36,9 @@ class usuario extends Component {
             Cookies.set('nomeUsuario', this.state.nome, { expires: 7 })
         }
 
+        // cookie pra telaLogin
+        Cookies.set('confirmaTela', true, { expires: 7 })
+
 
         console.log(this.props)
         
@@ -41,10 +50,9 @@ class usuario extends Component {
                     <p>Email: {Cookies.get('emailUsuario')}</p>
                     <p>Telefone: {Cookies.get('telefoneUsuario')}</p>
                 <div>
-                    <a href='#/sair'>
 
-                    <button id="botaoSair" type="button" className="btn btn-danger">Voltar</button>
-                    </a>
+                    <button id="botaoSair" type="button" className="btn btn-danger" onClick={this.trocarCookie}>Voltar</button>
+                    
                 </div>
             </div>        
         )}}

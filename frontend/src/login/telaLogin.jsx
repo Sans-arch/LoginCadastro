@@ -2,6 +2,8 @@ import './Login.css'
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {entrar} from './confirmaAction'
+import Cookies from 'js-cookie'
+
 
 class Login extends Component {
 
@@ -48,7 +50,8 @@ class Login extends Component {
 		 
 	render(){	
 		
-		return(
+		if( Cookies.get('confirmaTela') == 'false') {
+			return(
 		<form id="geral">
 			<div className='loginPosicaoo'>
 				<h2 className='loginH2'>Autenticação</h2>
@@ -77,7 +80,13 @@ class Login extends Component {
 			</div>
 		</form>
 			
-		)
+		)} else {
+			return (
+				<div>
+					{window.location.href='#/usuario'}
+				</div>
+			)
+		}
 	}
 }
 
