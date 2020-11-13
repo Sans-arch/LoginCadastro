@@ -10,4 +10,11 @@ O npm i deve ser utilizado tanto no **backend** quanto no **frontend** da aplica
 Para rodar as aplicações, utilize:
 - npm run dev
 
-Crie um banco de dados no MySQL chamado de **authDB**
+
+Recomendo utilizar XAMPP ou WAMPP para manipular o banco:
+
+![Imgur](https://i.imgur.com/LiqnHqo.png)
+
+Crie um banco de dados no MySQL chamado de **authdb**
+
+![Imgur](https://i.imgur.com/9s4tNcu.png)
