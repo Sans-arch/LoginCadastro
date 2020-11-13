@@ -1,8 +1,6 @@
 import React from 'react'
-import { Router, Route, IndexRoute, Redirect, hashHistory } from 'react-router'
+import { Router, Route, Redirect, hashHistory } from 'react-router'
 
-
-import App from './app'
 import Login from '../login/telaLogin'
 import Cadastro from '../cadastro/telaCadastro'
 import Usuario from '../usuario/telaUsuario'

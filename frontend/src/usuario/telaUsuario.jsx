@@ -2,50 +2,44 @@ import './Usuario.css'
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import '../main/rotas'
+import Cookies from 'js-cookie'
 
 class usuario extends Component {   
     constructor(props){
         super(props)
         
         this.state={
-            nome:'',
-            currentTime: 0
+            nome:''
         }
     }
-    /*
-    tick(){
-        this.setState((prevState, props) => ({
-            currentTime: prevState.currentTime + 1
-        }))
-    }
-
-    componentDidMount(){
-        this.timerID = setInterval(
-            () => this.tick(),
-            1000
-            )        
-    }
-*/
-    
     
     render(){
-       /* 
-        if(this.state.currentTime === 6){
-            window.location.href='#/sair'
-        }*/
-
+        
         if(this.props.nome !== ''){
             this.state.nome = this.props.nome
         }
         
+        // Validação de Cookies
+        if(this.props.telefone !== '') {
+            Cookies.set('telefoneUsuario', this.props.telefone, { expires: 7})  // nome, conteudo, expiração
+        }
+        if(this.props.email !== '') {
+            Cookies.set('emailUsuario', this.props.email, { expires: 7}) 
+        }
+        if(this.state.nome !== '') {
+            Cookies.set('nomeUsuario', this.state.nome, { expires: 7 })
+        }
+
+
         console.log(this.props)
-        return(
-            
+        
+        
+        return(    
             <div className="container">
-                <h1 className="titulo">Autenticado(a) com sucesso, {this.state.nome}!</h1>
-                    <p>Nome: {this.state.nome}</p>
-                    <p>Email: {this.props.email}</p>
-                    <p>Telefone: {this.props.telefone}</p>
+                <h1 className="titulo">Autenticado(a) com sucesso, {Cookies.get('nomeUsuario')}!</h1>
+                    <p>Nome: {Cookies.get('nomeUsuario')}</p>
+                    <p>Email: {Cookies.get('emailUsuario')}</p>
+                    <p>Telefone: {Cookies.get('telefoneUsuario')}</p>
                 <div>
                     <a href='#/sair'>
 
