@@ -1,6 +1,7 @@
 const Usuario = require('../models/usuario');
 const status = require('http-status');
 const bcrypt = require('bcrypt');
+const base64 = require('base-64')
 
 exports.cadastro = (req, res, next) => {
     const id = req.body.id;

@@ -1,6 +1,7 @@
 const Usuario = require('../models/usuario');
 const status = require('http-status');
 const bcrypt = require('bcrypt');
+const base64 = require('base-64')
 
 exports.login = (req, res, next) => {
 
@@ -14,7 +15,12 @@ exports.login = (req, res, next) => {
                     res.status(status.NOT_FOUND).send();
                 }
                 if(result){
-                    res.status(status.OK).send({mensagem: 'Autenticado com sucesso.', nome: usuario.nome, email: usuario.id, telefone: usuario.telefone});
+                    res.status(status.OK).send({mensagem: 'Autenticado com sucesso.',
+                     nome: usuario.nome,
+                     email: usuario.id, 
+                     telefone: usuario.telefone,
+                     cookie: base64.encode(`${usuario.email}:${senha}`)
+                    });
                 }else{
                     res.send({mensagem: "Senha ou e-mail incorretos, tente novamente."});
                 }

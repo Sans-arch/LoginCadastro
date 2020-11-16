@@ -6,7 +6,8 @@ export default (state = INITIAL_STATE, action) => {
             return{...state, mensagem: action.payload.data.mensagem,
                              nome: action.payload.data.nome,
                              email: action.payload.data.email,
-                             telefone: action.payload.data.telefone}
+                             telefone: action.payload.data.telefone,
+                             cookie: action.payload.data.cookie}
         case 'ADD':
             return {...state, mensagem: action.payload.data.mensagem}
         default:

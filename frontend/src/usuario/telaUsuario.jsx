@@ -44,7 +44,7 @@ class usuario extends Component {
                     return(    
                         <div className="container">
                             <h1 className="titulo">Autenticado(a) com sucesso, {Cookies.get('nomeUsuario')}!</h1>
-                                <p>Nome: {Cookies.get('nomeUsuario')}</p>
+                                <p>Nome: {this.state.nome}</p>
                                 <p>Email: {Cookies.get('emailUsuario')}</p>
                                 <p>Telefone: {Cookies.get('telefoneUsuario')}</p>
                             <div>
@@ -66,7 +66,7 @@ class usuario extends Component {
 const mapStateToProps = (state) => ({
     nome: state.busca.nome,
     email: state.busca.email,
-    telefone: state.busca.telefone
+    telefone: state.busca.telefone,
 })
 
 export default connect(mapStateToProps)(usuario)

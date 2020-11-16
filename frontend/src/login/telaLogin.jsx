@@ -41,9 +41,12 @@ class Login extends Component {
 
 		.then(()=>{
 			if(this.props.mensagem==='Autenticado com sucesso.'){ 
+				console.log(this.props.cookie)
+				Cookies.set('cookieRecebida', this.props.cookie, { expires: 7 })
 				window.location.href='#/usuario'
 			}
 			else{
+
 				alert(this.props.mensagem)
 			}
 		})
@@ -99,13 +102,9 @@ class Login extends Component {
 	}
 }
 
-const mapStateToProps = (state) =>({mensagem: state.busca.mensagem })
+const mapStateToProps = (state) =>({mensagem: state.busca.mensagem, cookie: state.busca.cookie })
 
 const mapDispatchToProps = (dispatch) => ({
 	enviar: (dados) => dispatch(entrar(dados))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
-
-
-
-
