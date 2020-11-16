@@ -12,7 +12,7 @@ module.exports = {
     production:{
         database: {
             host: process.env.DB_HOST,
-            host: process.env.DB_PORT
+            port: process.env.DB_PORT
         }
     }
 }
