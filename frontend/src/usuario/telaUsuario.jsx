@@ -9,20 +9,9 @@ class usuario extends Component {
         super(props)
         
         this.state={
-            nome:'',
-            currentTime: 0
+            nome:''
         }
     }
-
-    
-    tick(){
-        this.setState((prevState, props) => ({
-            currentTime: prevState.currentTime + 1
-        }))
-    }
-
-
-
 
     trocarCookie() {
         Cookies.set('confirmaTela', false, { expires: 7 })
@@ -30,8 +19,9 @@ class usuario extends Component {
     }
     
     render(){
+        Cookies.set('setUser', false, { expires: 7 })
 
-        
+
         if(this.props.nome !== ''){
             this.state.nome = this.props.nome
         }
@@ -49,24 +39,29 @@ class usuario extends Component {
 
         // cookie pra telaLogin
         Cookies.set('confirmaTela', true, { expires: 7 })
-
-
-        console.log(this.props)
         
-        
-        return(    
-            <div className="container">
-                <h1 className="titulo">Autenticado(a) com sucesso, {Cookies.get('nomeUsuario')}!</h1>
-                    <p>Nome: {Cookies.get('nomeUsuario')}</p>
-                    <p>Email: {Cookies.get('emailUsuario')}</p>
-                    <p>Telefone: {Cookies.get('telefoneUsuario')}</p>
-                <div>
-
-                    <button id="botaoSair" type="button" className="btn btn-danger" onClick={this.trocarCookie}>Voltar</button>
-                    
-                </div>
-            </div>        
-        )}}
+        if(Cookies.get('confirmaTela') =='true' || Cookies.get('initialLogin') == 'false'){
+                    return(    
+                        <div className="container">
+                            <h1 className="titulo">Autenticado(a) com sucesso, {Cookies.get('nomeUsuario')}!</h1>
+                                <p>Nome: {Cookies.get('nomeUsuario')}</p>
+                                <p>Email: {Cookies.get('emailUsuario')}</p>
+                                <p>Telefone: {Cookies.get('telefoneUsuario')}</p>
+                            <div>
+            
+                                <button id="botaoSair" type="button" className="btn btn-danger" onClick={this.trocarCookie}>Voltar</button>
+                                
+                            </div>
+                        </div>        
+                    )} else {
+                        return (
+                            <div>
+                                {window.location.href="#/login"}
+                            </div>
+                        )
+                    }
+                }
+        }
 
 const mapStateToProps = (state) => ({
     nome: state.busca.nome,

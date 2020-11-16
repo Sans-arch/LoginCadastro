@@ -30,6 +30,10 @@ class Login extends Component {
 
  	 entrar (){
 		
+		Cookies.set('initialLogin', false, { expires: 7 })
+		Cookies.set('setUser', true, { expires: 7 })
+		
+
 		this.props.enviar([
 			this.state.email,
 			this.state.senha
@@ -47,10 +51,15 @@ class Login extends Component {
 			console.error('fetch failed', err);
 		  });
 	}
-		 
-	render(){	
 		
-		if( Cookies.get('confirmaTela') == 'false') {
+	criarCookie() {
+        Cookies.set('initialLogin', true, { expires: 7 })
+	}
+
+	render(){	
+		this.criarCookie()
+
+		if( Cookies.get('confirmaTela') == 'false' || Cookies.get('initialLogin') == 'true') {
 			return(
 		<form id="geral">
 			<div className='loginPosicaoo'>
