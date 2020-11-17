@@ -14,7 +14,6 @@ class Usuario extends Component {
         }
     }
 
-
     trocarCookie() {
        // Cookies.set('confirmaTela', false, { expires: 7 })
         Cookies.remove('cookieRecebida')
