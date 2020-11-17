@@ -38,7 +38,7 @@ class Login extends Component {
 
 		.then(()=>{
 			if(this.props.mensagem==='Autenticado com sucesso.'){ 
-				console.log(this.props.cookie)
+				//console.log(this.props.cookie)
 				Cookies.set('cookieRecebida', this.props.cookie, { expires: 7 })
 				window.location.href='#/usuario'
 			}

@@ -14,15 +14,16 @@ class Usuario extends Component {
         }
     }
 
+
     trocarCookie() {
-        Cookies.set('confirmaTela', false, { expires: 7 })
+       // Cookies.set('confirmaTela', false, { expires: 7 })
         Cookies.remove('cookieRecebida')
         window.location.href="#/login"
     }
 
     render(){
         
-        console.log(this.state.cookie)
+      //  console.log(this.state.cookie)
      //   Cookies.set('cookieRecebida', this.props.cookie, { expires: 7 })
 
          Cookies.set('setUser', false, { expires: 7 })   
@@ -69,5 +70,6 @@ const mapStateToProps = (state) => ({
     telefone: state.busca.telefone,
     cookie: state.busca.cookie
 })
+
 
 export default connect(mapStateToProps)(Usuario)

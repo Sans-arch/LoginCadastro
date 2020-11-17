@@ -21,7 +21,6 @@ export function add (dadosAdd){
 export function pegar(dadosPegar){
     const [email] = dadosPegar
     const request = axios.post(`${BASE_URL}/userGetInfo/`,{ email })
-    console.log(request + 'SASASASAS')
     return{
         type: 'PEGAR',
         payload: request
