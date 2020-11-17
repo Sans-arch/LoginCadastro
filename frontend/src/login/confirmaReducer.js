@@ -10,7 +10,9 @@ export default (state = INITIAL_STATE, action) => {
                              cookie: action.payload.data.cookie}
         case 'ADD':
             return {...state, mensagem: action.payload.data.mensagem}
-        default:
+        case 'PEGAR':
+            return {...state, email: action.payload.data.email}
+            default:
             return state
     }
 }

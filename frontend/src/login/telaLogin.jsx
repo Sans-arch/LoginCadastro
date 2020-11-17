@@ -4,9 +4,7 @@ import {connect} from 'react-redux'
 import {entrar} from './confirmaAction'
 import Cookies from 'js-cookie'
 
-
 class Login extends Component {
-
 	constructor(props){
 		super(props)
 
@@ -16,7 +14,6 @@ class Login extends Component {
 		}
 		this.onChange = this.onChange.bind(this)		
 		this.entrar = this.entrar.bind(this)
-	
 	}
 	onChange (nome, valor )  {
 
@@ -46,7 +43,6 @@ class Login extends Component {
 				window.location.href='#/usuario'
 			}
 			else{
-
 				alert(this.props.mensagem)
 			}
 		})
@@ -58,6 +54,8 @@ class Login extends Component {
 	criarCookie() {
         Cookies.set('initialLogin', true, { expires: 7 })
 	}
+
+
 
 	render(){	
 		this.criarCookie()
@@ -87,8 +85,6 @@ class Login extends Component {
 						<button type="button" id="botao2" className="btn btn-danger">Cadastrar</button>
 					</a>
 				</div>			
-			
-
 			</div>
 		</form>
 			

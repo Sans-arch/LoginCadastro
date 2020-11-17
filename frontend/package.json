@@ -41,6 +41,7 @@
     "webpack-dev-server": "1.16.2"
   },
   "dependencies": {
+    "base-64": "^1.0.0",
     "cors": "^2.8.5",
     "js-cookie": "^2.2.1"
   }

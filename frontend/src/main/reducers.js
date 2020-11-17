@@ -7,5 +7,3 @@ busca: DadosAPI
     
 })
 export default rootReducer
-
-
