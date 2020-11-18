@@ -58,7 +58,16 @@ class Login extends Component {
 
 	render(){	
 		this.criarCookie()
+		
+		if(Cookies.get('cookieRecebida')){
+			return (
+				<div>
+					{window.location.href="#/usuario"}
+				</div>
+			)
+		} else {
 
+		
 		if( Cookies.get('confirmaTela') == 'false' || Cookies.get('initialLogin') == 'true') {
 			return(
 		<form id="geral">
@@ -94,7 +103,7 @@ class Login extends Component {
 				</div>
 			)
 		}
-	}
+	}}
 }
 
 const mapStateToProps = (state) =>({mensagem: state.busca.mensagem, cookie: state.busca.cookie })

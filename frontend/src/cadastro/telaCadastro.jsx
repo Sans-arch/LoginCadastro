@@ -2,6 +2,8 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {add} from '../login/confirmaAction'
 import './Cadastro.css'
+import Cookies from 'js-cookie'
+
 
 class Cadastro extends Component {
 
@@ -68,6 +70,13 @@ class Cadastro extends Component {
 
 	render(){
 
+		if(Cookies.get('cookieRecebida')){
+			return (
+				<div>
+					{window.location.href="#/usuario"}
+				</div>
+			)
+		} else {
 		return(
 			<form>
 				<div className='CadastroPosicao'>
@@ -108,7 +117,7 @@ class Cadastro extends Component {
 				</div>
 			</form>
 		)
-	}
+	}}
 } 
 
 const mapStateToProps = (state) => ({mensagem: state.busca.mensagem})
