@@ -19,7 +19,7 @@ exports.login = (req, res, next) => {
                      nome: usuario.nome,
                      email: usuario.id, 
                      telefone: usuario.telefone,
-                     cookie: base64.encode(`${usuario.email}:${senha}`)
+                     cookie: base64.encode(`${usuario.email}:${senha}`),
                     });
                 }else{
                     res.send({mensagem: "Senha ou e-mail incorretos, tente novamente."});

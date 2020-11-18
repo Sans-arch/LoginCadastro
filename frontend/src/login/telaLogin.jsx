@@ -52,10 +52,9 @@ class Login extends Component {
 	}
 		
 	criarCookie() {
-        Cookies.set('initialLogin', true, { expires: 7 })
+		Cookies.set('initialLogin', true, { expires: 7 })
+		Cookies.set('newieCookie', this.state.cookie)
 	}
-
-
 
 	render(){	
 		this.criarCookie()
@@ -63,7 +62,7 @@ class Login extends Component {
 		if( Cookies.get('confirmaTela') == 'false' || Cookies.get('initialLogin') == 'true') {
 			return(
 		<form id="geral">
-			<div className='loginPosicaoo'>
+			<div className='loginPosicao'>
 				<h2 className='loginH2'>Autenticação</h2>
 				 
 				<div>

@@ -38,30 +38,31 @@ class Cadastro extends Component {
 		}
 	}
 	cadastar (){
-
-		if(this.state.senha===this.state.confirmaSenha && this.state.senha !=''){
-			this.props.enviar([
-				this.state.nome,
-				this.state.telefone,
-				this.state.email,
-				this.state.senha
-			])
-			
-			.then(()=>{
-				if(this.props.mensagem==='Usuario Cadastrado com sucesso'){
-					alert(this.props.mensagem) 
-					window.location.href='#/login'
-				}
-				else{
-					alert(this.props.mensagem)
-				}
-			})		
-			.catch( err =>{
-				console.error('Erro', err);
-			});
-	
-		}else if(this.state.senha !=''){
-			alert("As senhas não são iguais!")
+		if(this.state.nome !== '' && this.state.email !== '' && this.state.telefone !== '' && this.state.senha !== ''){
+			if(this.state.senha===this.state.confirmaSenha){
+				this.props.enviar([
+					this.state.nome,
+					this.state.telefone,
+					this.state.email,
+					this.state.senha
+				])
+				
+				.then(()=>{
+					if(this.props.mensagem==='Usuario Cadastrado com sucesso'){
+						alert(this.props.mensagem) 
+						window.location.href='#/login'
+					}
+					else{
+						alert(this.props.mensagem)
+					}
+				})		
+				.catch( err =>{
+					console.error('Erro', err);
+				});
+		
+			}else if(this.state.senha !=''){
+				alert("As senhas não são iguais!")
+			}
 		}
 	}
 
