@@ -26,3 +26,12 @@ export function pegar(dadosPegar){
         payload: request
     }
 }
+
+export function buscar(id){
+    const request = axios.post(`${BASE_URL}/receber`, { id })
+    console.log(request)
+    return{
+        type: 'BUSCAR',
+        payload: request
+    }
+}

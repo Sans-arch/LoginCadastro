@@ -12,6 +12,10 @@ export default (state = INITIAL_STATE, action) => {
             return {...state, mensagem: action.payload.data.mensagem}
         case 'PEGAR':
             return {...state, email: action.payload.data.email}
+        case 'BUSCAR':
+            return { ...state, nome: action.payload.data.nome,
+                               email: action.payload.data.email,
+                               telefone: action.payload.data.telefone}
             default:
             return state
     }

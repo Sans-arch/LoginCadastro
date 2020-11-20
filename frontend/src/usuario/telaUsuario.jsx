@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import '../main/rotas'
 import Cookies from 'js-cookie'
 import base64 from 'base-64'
+import { buscar } from '../login/confirmaAction'
+
 
 class Usuario extends Component {   
     constructor(props){
@@ -13,6 +15,7 @@ class Usuario extends Component {
             nome:'',
             currentTime: 0 
         }
+        this.chamar = this.chamar.bind(this)
     }
 
     trocarCookie() {
@@ -21,32 +24,37 @@ class Usuario extends Component {
           window.location.href="#/login"
     }
 
-
+    chamar() {
+        this.props.solicitar(Cookies.get('emailteste'))
+        console.log(Cookies.get('emailteste'))
+    }    
+    
+    
     render(){
-        console.log(Cookies.get('cookieRecebida'))  
+        Cookies.set('setUser', false, { expires: 7 })   
+        
+        
+        
+        // Decodar a cookie e separar seus valores em constantes
+        const cuki = base64.decode(`${Cookies.get('cookieRecebida')}`)
+        const splittedCookie = cuki.split(':')
+        Cookies.set('emailteste', splittedCookie[1]) 
 
-         Cookies.set('setUser', false, { expires: 7 })   
-         if(this.props.nome !== ''){
-             this.state.nome = this.props.nome
-         }
-         // Validação de Cookies
-         if(this.props.telefone !== '') {
-             Cookies.set('telefoneUsuario', this.props.telefone, { expires: 7})  // nome, conteudo, expiração
-         }
-         if(this.props.email !== '') {
-             Cookies.set('emailUsuario', this.props.email, { expires: 7}) 
-         }
-         if(this.state.nome !== '') {
-             Cookies.set('nomeUsuario', this.state.nome, { expires: 7 })
-         }
-                    
+            // Função de Tempo
+            setInterval(function () {
+                window.location.href='#/login'
+                {Cookies.remove('cookieRecebida')}
+            }, 10000)
+            
             if(Cookies.get('cookieRecebida')){
-                        return(    
+                this.chamar()
+                return(
                             <div className="container">
-                                <h1 className="titulo">Autenticado(a) com sucesso, {Cookies.get('nomeUsuario')}!</h1>
-                                    <p>Nome: {Cookies.get('nomeUsuario')}</p>
-                                    <p>Email: {Cookies.get('emailUsuario') }  </p>
-                                    <p>Telefone: {Cookies.get('telefoneUsuario')}</p>
+                                <h1 className="titulo">Autenticado(a) com sucesso, {this.props.nome}!</h1>
+                                    <p>Nome: {this.props.nome}</p>
+                                    <p>Email: {this.props.email}  </p>
+                                    <p>Telefone: {this.props.telefone}</p>
+                                    <p>{Cookies.get('datarUsuario')}</p>
                                 <div>
                 
                                     <button id="botaoSair" type="button" className="btn btn-danger" onClick={this.trocarCookie}>Voltar</button>
@@ -70,5 +78,9 @@ const mapStateToProps = (state) => ({
     cookie: state.busca.cookie
 })
 
+const mapDispatchToProps = (dispatch) => ({
+    solicitar: ((email) => dispatch(buscar(email)))
+})
 
-export default connect(mapStateToProps)(Usuario)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Usuario)

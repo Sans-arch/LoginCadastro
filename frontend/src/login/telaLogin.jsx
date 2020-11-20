@@ -38,8 +38,9 @@ class Login extends Component {
 
 		.then(()=>{
 			if(this.props.mensagem==='Autenticado com sucesso.'){ 
-				//console.log(this.props.cookie)
 				Cookies.set('cookieRecebida', this.props.cookie, { expires: 7 })
+				var inOneMinutes = new Date(new Date().getTime() + 1 * 60 * 1000);
+				Cookies.set('datarUsuario', Date(), { expires: inOneMinutes})
 				window.location.href='#/usuario'
 			}
 			else{
@@ -66,9 +67,6 @@ class Login extends Component {
 				</div>
 			)
 		} else {
-
-		
-		if( Cookies.get('confirmaTela') == 'false' || Cookies.get('initialLogin') == 'true') {
 			return(
 		<form id="geral">
 			<div className='loginPosicao'>
@@ -96,13 +94,7 @@ class Login extends Component {
 			</div>
 		</form>
 			
-		)} else {
-			return (
-				<div>
-					{window.location.href='#/usuario'}
-				</div>
-			)
-		}
+		)
 	}}
 }
 

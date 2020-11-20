@@ -51,6 +51,7 @@ class Cadastro extends Component {
 				
 				.then(()=>{
 					if(this.props.mensagem==='Usuario Cadastrado com sucesso'){
+						console.log(this.props.mensagem)
 						alert(this.props.mensagem) 
 						window.location.href='#/login'
 					}
